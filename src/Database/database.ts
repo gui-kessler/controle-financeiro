@@ -1,4 +1,4 @@
-import { MongoClient, config } from "./deps.ts";
+import { MongoClient, config } from "../deps.ts";
 
 const USER = config().MONGO_ATLAS_USER;
 const PASS = config().MONGO_ATLAS_PASSWORD;
