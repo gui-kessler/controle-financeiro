@@ -10,15 +10,15 @@ try {
     await client.connect(dbString);
     console.log("Database connected!");
 } catch (e: any) {
-    console.log("Erro ao conectar ao cluster");
+    console.log("Erro ao conectar ao cluster", e);
 }
 
-const getDataBase = async (database) => {
+const getDataBase = async (database: string) => {
     try {
         const db = await client.database(database);
         return db;
     } catch (e: any) {
-        console.log("Erro ao conectar ao banco de dados");
+        console.log("Erro ao conectar ao banco de dados", e);
         return null;
     }
 };

@@ -1,25 +1,15 @@
 import { getDataBase } from "../database.ts";
 import { UsuarioSchema } from "../../Models/Usuario.ts";
+import { ObjectId } from "../../deps.ts";
 
 const db = await getDataBase('ademir');
 
-const insert = async (usuario: UsuarioSchema): UsuarioSchema => {
-    const collection = await getCollection();
-    const inserted = await collection.insertOne(usuario);
-    return inserted;
+export const insert = async (usuario: UsuarioSchema): Promise<ObjectId | undefined> => {
+    const collection = db?.collection<UsuarioSchema>('usuarios');
+    return await collection?.insertOne(usuario);
 }
 
-const find = async (username: string): UsuarioSchema => {
-    const collection = await getCollection();
-    const usuario = await collection.findOne({ username: username })
-    return usuario;
-};
-
-const getCollection = async () => {
-    return await db.collection<UsuarioSchema>('usuarios');
-};
-
-export {
-    insert,
-    find
+export const find = async (username: string): Promise<UsuarioSchema | undefined> => {
+    const collection = db?.collection<UsuarioSchema>('usuarios');
+    return await collection?.findOne({ username: username });
 };
