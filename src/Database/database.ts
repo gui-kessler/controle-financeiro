@@ -1,4 +1,4 @@
-import { MongoClient, config } from "../deps.ts";
+import { Database, MongoClient, config } from "../deps.ts";
 
 const USER = config().MONGO_ATLAS_USER;
 const PASS = config().MONGO_ATLAS_PASSWORD;
@@ -13,16 +13,12 @@ try {
     console.log("Erro ao conectar ao cluster", e);
 }
 
-const getDataBase = async (database: string) => {
+export const getDataBase = (database: string): Database | undefined => {
     try {
-        const db = await client.database(database);
+        const db = client.database(database);
         return db;
     } catch (e: any) {
         console.log("Erro ao conectar ao banco de dados", e);
-        return null;
+        return undefined;
     }
 };
-
-export {
-    getDataBase
-}

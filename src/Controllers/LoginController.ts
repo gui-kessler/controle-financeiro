@@ -1,6 +1,4 @@
-import { Context } from "https://deno.land/x/oak@v12.1.0/mod.ts";
-import { find } from "../Database/Repository/UsuariosRepository.ts";
-import { createJwt } from "../deps.ts";
+import { createJwt, Context } from "../deps.ts";
 
 export const login = async (ctx: Context) => {
     const body = await ctx.request.body().value;
