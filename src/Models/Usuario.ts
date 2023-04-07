@@ -1,7 +1,7 @@
 import { ObjectId } from "../deps.ts";
 import { CrudClass } from "../Database/Crud.ts";
 
-export type UsuarioType = {
+export type Usuario = {
     _id: ObjectId;
     username: string;
     nome: string;
@@ -10,7 +10,7 @@ export type UsuarioType = {
     database: string;
 }
 
-export class Usuario extends CrudClass<UsuarioType> {
+export class UsuarioRepository extends CrudClass<Usuario> {
     readonly collectionName = 'usuarios';
 
     constructor() {
