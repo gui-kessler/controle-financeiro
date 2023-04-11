@@ -20,7 +20,7 @@ export class CrudClass<T extends { _id?: ObjectId|undefined; }>
     }
 
     async find(filter: any): Promise<T[] | undefined> {
-        const records = await this.collection?.find(...filter).toArray();
+        const records = await this.collection?.find(filter).toArray();
         return records;
     }
 }
