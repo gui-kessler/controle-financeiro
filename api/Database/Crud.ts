@@ -1,4 +1,4 @@
-import { Collection, Database, ObjectId, InsertDocument } from "../deps.ts";
+import { Collection, Database, ObjectId, InsertDocument } from "mongo";
 import { getDataBase } from "./database.ts";
 
 export class CrudClass<T extends { _id?: ObjectId|undefined; }>
@@ -8,6 +8,10 @@ export class CrudClass<T extends { _id?: ObjectId|undefined; }>
 
     constructor(database = 'ademir') {
         this.db = getDataBase(database);
+    }
+
+    async all(): Promise<T[] | undefined> {
+        return await this.collection?.find().toArray();
     }
 
     async findById(id: ObjectId): Promise<T | undefined> {

@@ -1,4 +1,4 @@
-import { ObjectId } from "../deps.ts";
+import { ObjectId } from "mongo";
 import { CrudClass } from "../Database/Crud.ts";
 
 export type Conta = {
