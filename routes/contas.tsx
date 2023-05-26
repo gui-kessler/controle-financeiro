@@ -10,7 +10,6 @@ export const handler: Handlers = {
 };
 
 export default function Contas(data: PageProps) {
-    console.log(data);
     return (
         <>
             <Nav></Nav>
