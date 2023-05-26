@@ -1,4 +1,5 @@
 import { Head } from "$fresh/runtime.ts";
+import { Nav } from "../components/Nav.tsx";
 
 export default function Home() {
   return (
@@ -6,9 +7,8 @@ export default function Home() {
       <Head>
         <title>Fresh App</title>
       </Head>
-      <div class="p-4 mx-auto max-w-screen-md">
-        <h1>Controle Financeiro</h1>
-        <a href="/contas">Contas</a>
+      <div>
+        <Nav />
       </div>
     </>
   );
