@@ -1,9 +1,8 @@
 import { Database, MongoClient } from "mongo";
-import { config } from "config";
 
-const USER = config().MONGO_ATLAS_USER;
-const PASS = config().MONGO_ATLAS_PASSWORD;
-const URI = config().MONGO_ATLAS_URI
+const USER = Deno.env.get("MONGO_ATLAS_USER");
+const PASS = Deno.env.get("MONGO_ATLAS_PASSWORD");
+const URI = Deno.env.get("MONGO_ATLAS_URI");
 const dbString = `mongodb+srv://${USER}:${PASS}@${URI}/?authMechanism=SCRAM-SHA-1`;
 const client = new MongoClient();
 
