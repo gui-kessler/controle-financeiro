@@ -18,6 +18,7 @@ export default function Contas(data: PageProps) {
             <h1>conta2</h1>
             <h1>conta3</h1>
             <h1>conta4</h1>
+            <p>{JSON.stringify(data.data)}</p>
         </>
     );
 }
