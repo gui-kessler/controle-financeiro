@@ -12,7 +12,7 @@ export const handler: Handlers = {
 export default function Contas(data: PageProps) {
     return (
         <>
-            <Nav></Nav>
+            <Nav />
             <h1>conta1</h1>
             <h1>conta2</h1>
             <h1>conta3</h1>
