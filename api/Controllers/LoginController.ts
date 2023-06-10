@@ -1,26 +1,6 @@
-import { createJwt, Context } from "../deps.ts";
+import { createJwt } from "../deps.ts";
 
-export const login = async (ctx: Context) => {
-    const body = await ctx.request.body().value;
-
-    if (ctx.request.headers.get("content-type") !== "application/json") {
-        ctx.response.status = 400;
-        ctx.response.body = {
-            success: false,
-            message: "Type not allowed"
-        };
-        return;
-    }
-
-    if (!ctx.request.hasBody) {
-        ctx.response.status = 400;
-        ctx.response.body = {
-            success: false,
-            message: 'Nenhuma informação recebida'
-        };
-        return;
-    }
-
+export const login = async (data) => {
     const usuario = await find(body?.username);
     if (!usuario) {
         ctx.response.status = 401;
@@ -53,9 +33,6 @@ export const login = async (ctx: Context) => {
         role: usuario.role
     }
     const token = await createJwt({alg: "HS512", typ: "JWT"}, userPayload, key);
-    ctx.response.body = {
-        success: true,
-        token
-    }
+    
     return;
 };

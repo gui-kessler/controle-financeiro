@@ -1,6 +1,6 @@
 import { ContaRepository } from "../Models/Conta.ts";
 
-export const insert = async () => {
+/* export const insert = async () => {
     try {
         const repository = new ContaRepository();
         const conta = await ctx.request.body().value;
@@ -13,9 +13,9 @@ export const insert = async () => {
     } catch (e: any) {
         console.log(e);
     }
-}
+} */
 
-export const find = async () => {
+/* export const find = async () => {
     try {
         const repository = new ContaRepository();
         const body = await ctx.request.body().value;
@@ -33,7 +33,7 @@ export const find = async () => {
     } catch (e: any) {
         console.log(e);
     }
-}
+} */
 
 export const all = async () => {
     try {
