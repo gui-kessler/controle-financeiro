@@ -1,5 +1,6 @@
 import { Head } from "$fresh/runtime.ts";
-import { Nav } from "../components/Nav.tsx";
+import Template from "../components/Template.tsx";
+import { tw } from "../utils/twind.ts";
 
 export default function Home() {
   return (
@@ -8,7 +9,11 @@ export default function Home() {
         <title>Fresh App</title>
       </Head>
       <div>
-        <Nav />
+        <Template>
+          <p class={tw`text-xl`}>
+            Sem dashboard no momento &#128077;
+          </p>
+        </Template>
       </div>
     </>
   );
